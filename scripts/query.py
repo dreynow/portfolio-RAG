@@ -2,7 +2,8 @@ from openai import OpenAI
 from scripts.database import query_knowledge_base
 import os
 
-client = OpenAI(base_url="http://localhost:8000/v1", api_key="vllm")
+VLLM_BASE_URL = os.getenv("VLLM_BASE_URL", "http://localhost:8000/v1")
+client = OpenAI(base_url=VLLM_BASE_URL, api_key="vllm")
 
 def load_prompt(file_path, context_data):
     """Loads a text file and replaces the {context} placeholder."""
