@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dare Sunday - Portfolio Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Chat Area -->
+        <div class="chat-container" id="chat-container">
+            <div class="logo">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Soft glow background -->
+                    <ellipse cx="60" cy="60" rx="45" ry="45" fill="url(#glow)" opacity="0.15"/>
+
+                    <!-- Main D - Bold vertical stem -->
+                    <path d="M32 20 L32 100"
+                          stroke="url(#mainGrad)" stroke-width="8" stroke-linecap="round"/>
+
+                    <!-- D curve - flowing organic shape -->
+                    <path d="M32 20 C32 20, 45 18, 60 20 C90 25, 98 45, 98 60 C98 75, 90 95, 60 100 C45 102, 32 100, 32 100"
+                          stroke="url(#mainGrad)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <!-- Inner negative space highlight -->
+                    <path d="M48 38 C65 38, 78 48, 78 60 C78 72, 65 82, 48 82"
+                          stroke="url(#innerGrad)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+                    <!-- Artistic accent - floating particle -->
+                    <circle cx="95" cy="30" r="4" fill="url(#accentGrad)">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="102" cy="45" r="2" fill="#B85C6E" opacity="0.4"/>
+
+                    <!-- Subtle motion line -->
+                    <path d="M105 55 Q108 60 105 65" stroke="#8B3A4E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+                    <defs>
+                        <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#B85C6E"/>
+                            <stop offset="50%" stop-color="#8B3A4E"/>
+                            <stop offset="100%" stop-color="#5C1E31"/>
+                        </linearGradient>
+                        <linearGradient id="innerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#D4899A"/>
+                            <stop offset="100%" stop-color="#B85C6E"/>
+                        </linearGradient>
+                        <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#D4899A"/>
+                            <stop offset="100%" stop-color="#8B3A4E"/>
+                        </linearGradient>
+                        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#8B3A4E"/>
+                            <stop offset="100%" stop-color="transparent"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="intro-message">
+                <h1 class="typewriter">Hi, Dare Sunday here.</h1>
+                <p>Can I help you with anything?</p>
+            </div>
+            <!-- Messages will be injected here -->
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area glass-card">
+            <form id="chat-form" autocomplete="off">
+                <input type="text" id="user-input" placeholder="Ask a question..." required>
+                <button type="submit" id="send-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <!-- Aura Glow Effect -->
+        <div class="aura-glow" id="aura-glow"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
