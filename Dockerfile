@@ -2,6 +2,12 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+# Install system dependencies for llama.cpp
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
@@ -12,10 +18,10 @@ COPY scripts/ scripts/
 COPY prompts/ prompts/
 COPY frontend/ frontend/
 COPY data/ data/
+COPY entrypoint.sh .
 
-# Copy ChromaDB data if exists
-COPY chroma_db/ chroma_db/
+RUN chmod +x entrypoint.sh
 
 EXPOSE 5001
 
-CMD ["python", "main.py"]
+ENTRYPOINT ["./entrypoint.sh"]
