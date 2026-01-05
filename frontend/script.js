@@ -8,8 +8,11 @@ const logo = document.querySelector('.logo');
 
 let isGenerating = false;
 
-// Auto-focus input
-userInput.focus();
+// Only auto-focus on desktop (not mobile) to prevent keyboard from showing on load
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (!isMobile) {
+    userInput.focus();
+}
 
 chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
