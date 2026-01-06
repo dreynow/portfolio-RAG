@@ -33,6 +33,7 @@ chatForm.addEventListener('submit', async (e) => {
         intro.remove();
         inputArea.classList.add('chat-active');
         logo.classList.add('chat-active');
+        chatContainer.classList.add('chat-active');
     }
 
     // 3. Add AI Placeholder & Activate Aura
