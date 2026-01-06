@@ -309,6 +309,25 @@ button:disabled {
     }
 }
 
+/* Tablet/iPad Responsiveness */
+@media (max-width: 1024px) and (min-width: 601px) {
+    .chat-container {
+        padding-bottom: 160px;
+    }
+
+    .chat-container.chat-active {
+        padding-bottom: 120px;
+    }
+
+    .input-area {
+        bottom: 30vh;
+    }
+
+    .input-area.chat-active {
+        bottom: 20px;
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     .logo {
