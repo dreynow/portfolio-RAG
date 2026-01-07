@@ -1,79 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Dare Sunday - Portfolio Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#1f201f',
+                        'accent-color': '#81e840',
+                        'accent-glow': 'rgba(129, 232, 64, 0.5)',
+                    },
+                    animation: {
+                        'fadeIn': 'fadeIn 1s ease-out forwards',
+                        'wave': 'wave 1.5s ease-in-out infinite',
+                        'typewriter': 'typewriter 2s steps(30) 0.3s forwards, blink 0.7s step-end 2.3s infinite',
+                        'pulse-glow': 'pulse-glow 3s infinite ease-in-out',
+                        'slideUp': 'slideUp 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        wave: {
+                            '0%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(20deg)' },
+                            '50%': { transform: 'rotate(-10deg)' },
+                            '75%': { transform: 'rotate(20deg)' },
+                        },
+                        typewriter: {
+                            'from': { width: '0' },
+                            'to': { width: '100%' },
+                        },
+                        blink: {
+                            '50%': { 'border-color': 'transparent' },
+                        },
+                        cursorHide: {
+                            'to': { 'border-color': 'transparent' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { transform: 'translateX(-50%) scale(1)', opacity: '0.8' },
+                            '50%': { transform: 'translateX(-50%) scale(1.1)', opacity: '1' },
+                        },
+                        slideUp: {
+                            'from': { opacity: '0', transform: 'translateY(10px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-card {
+                @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+            }
+            .mask-fade {
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 100%);
+                mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 100%);
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div class="app-container">
+<body class="bg-bg-primary text-[#E8E8E8] h-full overflow-hidden flex flex-col font-['Inter'] antialiased">
+    <div class="app-container flex flex-col h-full w-full max-w-[800px] mx-auto relative z-[1]">
         <!-- Chat Area -->
-        <div class="chat-container" id="chat-container">
-            <div class="logo">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Soft glow background -->
-                    <ellipse cx="60" cy="60" rx="45" ry="45" fill="url(#glow)" opacity="0.15"/>
-
-                    <!-- Main D - Bold vertical stem -->
-                    <path d="M32 20 L32 100"
-                          stroke="url(#mainGrad)" stroke-width="8" stroke-linecap="round"/>
-
-                    <!-- D curve - flowing organic shape -->
-                    <path d="M32 20 C32 20, 45 18, 60 20 C90 25, 98 45, 98 60 C98 75, 90 95, 60 100 C45 102, 32 100, 32 100"
-                          stroke="url(#mainGrad)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-                    <!-- Inner negative space highlight -->
-                    <path d="M48 38 C65 38, 78 48, 78 60 C78 72, 65 82, 48 82"
-                          stroke="url(#innerGrad)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
-
-                    <!-- Artistic accent - floating particle -->
-                    <circle cx="95" cy="30" r="4" fill="url(#accentGrad)">
-                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="102" cy="45" r="2" fill="#81e840" opacity="0.4"/>
-
-                    <!-- Subtle motion line -->
-                    <path d="M105 55 Q108 60 105 65" stroke="#81e840" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.3"/>
-
+        <div class="chat-container flex-1 overflow-y-auto p-5 pb-[140px] flex flex-col gap-4 scroll-smooth mask-fade scrollbar-none"
+            id="chat-container">
+            <div class="logo text-center mt-[20vh] mb-6 opacity-0 animate-fadeIn drop-shadow-[0_0_20px_rgba(129,232,64,0.4)] transition-all duration-400"
+                id="logo">
+                <svg class="mx-auto w-[80px] h-[80px] md:w-[120px] md:h-[120px]" viewBox="0 0 100 100" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 25V75H50C65 75 75 65 75 50C75 35 65 25 50 25H25Z" stroke="url(#ds_grad)"
+                        stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M45 42C45 36 60 36 60 42C60 48 45 50 45 56C45 62 60 62 60 56" stroke="url(#ds_grad)"
+                        stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
                     <defs>
-                        <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#a4f070"/>
-                            <stop offset="50%" stop-color="#81e840"/>
-                            <stop offset="100%" stop-color="#5cb82a"/>
+                        <linearGradient id="ds_grad" x1="25" y1="25" x2="75" y2="75" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#a4f070" />
+                            <stop offset="1" stop-color="#5cb82a" />
                         </linearGradient>
-                        <linearGradient id="innerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#c4ff9a"/>
-                            <stop offset="100%" stop-color="#a4f070"/>
-                        </linearGradient>
-                        <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#c4ff9a"/>
-                            <stop offset="100%" stop-color="#81e840"/>
-                        </linearGradient>
-                        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#81e840"/>
-                            <stop offset="100%" stop-color="transparent"/>
-                        </radialGradient>
                     </defs>
                 </svg>
             </div>
-            <div class="intro-message">
-                <h1 class="typewriter">Hey there, I'm Dare Sunday <svg class="wave-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 12.5L6 11C5.17 10.17 5.17 8.83 6 8C6.83 7.17 8.17 7.17 9 8L12 11M12 11L15.5 7.5C16.33 6.67 17.67 6.67 18.5 7.5C19.33 8.33 19.33 9.67 18.5 10.5L17 12M12 11L9.5 8.5M12 11V11ZM17 12L18.5 13.5C19.33 14.33 19.33 15.67 18.5 16.5L14.5 20.5C12.5 22.5 9.5 22.5 7.5 20.5L4.5 17.5C3.67 16.67 3.67 15.33 4.5 14.5C5.33 13.67 6.67 13.67 7.5 14.5L8 15" stroke="#81e840" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h1>
-                <p>Ask me anything about my work, projects, or how we can collaborate.</p>
+            <div class="intro-message text-center mb-7">
+                <h1
+                    class="text-[1.3rem] leading-tight md:text-4xl font-light mb-2 text-white overflow-hidden whitespace-nowrap border-r-2 border-accent-color mx-auto inline-block animate-typewriter pr-1">
+                    Hey there, I'm Dare Sunday <svg
+                        class="wave-icon inline-block align-middle ml-1 animate-wave origin-[70%_70%]" width="32"
+                        height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7.5 12.5L6 11C5.17 10.17 5.17 8.83 6 8C6.83 7.17 8.17 7.17 9 8L12 11M12 11L15.5 7.5C16.33 6.67 17.67 6.67 18.5 7.5C19.33 8.33 19.33 9.67 18.5 10.5L17 12M12 11L9.5 8.5M12 11V11ZM17 12L18.5 13.5C19.33 14.33 19.33 15.67 18.5 16.5L14.5 20.5C12.5 22.5 9.5 22.5 7.5 20.5L4.5 17.5C3.67 16.67 3.67 15.33 4.5 14.5C5.33 13.67 6.67 13.67 7.5 14.5L8 15"
+                            stroke="#81e840" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </h1>
+                <p
+                    class="text-[#A0A0A0] opacity-0 animate-[fadeIn_0.8s_ease-out_2.5s_forwards] text-sm md:text-base px-5">
+                    Ask me anything about my work, projects, or how we can collaborate.</p>
             </div>
             <!-- Messages will be injected here -->
         </div>
 
         <!-- Input Area -->
-        <div class="input-area glass-card">
-            <form id="chat-form" autocomplete="off">
-                <input type="text" id="user-input" placeholder="Ask a question..." required>
-                <button type="submit" id="send-btn">
+        <div class="input-area fixed bottom-[35vh] left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[760px] p-2.5 rounded-2xl z-20 bg-bg-primary/85 backdrop-blur-xl border border-accent-color/20 shadow-2xl transition-all duration-400"
+            id="input-area">
+            <form id="chat-form" autocomplete="off" class="flex gap-2.5 items-center">
+                <input type="text" id="user-input" placeholder="Ask a question..." required
+                    class="flex-1 bg-transparent border-none text-white text-base p-2 outline-none placeholder:text-[#A0A0A0] placeholder:font-light">
+                <button type="submit" id="send-btn"
+                    class="bg-transparent border-none text-accent-color p-2 cursor-pointer transition-all hover:text-[#a4f070] hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -84,7 +130,8 @@
         </div>
 
         <!-- Aura Glow Effect -->
-        <div class="aura-glow" id="aura-glow"></div>
+        <div class="aura-glow fixed -bottom-[100px] left-1/2 -translate-x-1/2 w-[60%] h-[150px] bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_70%)] blur-[60px] opacity-0 transition-opacity duration-500 pointer-events-none z-0"
+            id="aura-glow"></div>
     </div>
 
     <script src="/static/script.js"></script>

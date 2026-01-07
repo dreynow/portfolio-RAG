@@ -55,3 +55,19 @@ curl -X POST http://localhost:5000/chat/stream \
     ├── raw/                # Source documents (CV PDF)
     └── processed/          # Processed documents (about-me.md)
 ```
+## Deployment
+
+Deployment follows a specific process depending on the type of change. See [.agent/workflows/deploy.md](.agent/workflows/deploy.md) for full details.
+
+### Quick Reference
+
+| Change Type | Location | Deploy Method |
+| :--- | :--- | :--- |
+| **Python/Frontend code** | `/portfolio/` | Docker build → push → delete pod |
+| **K8s deployment config** | `volta/alpha-uno/` | Git push (FluxCD auto-syncs) |
+| **vLLM config** | `/portfolio/gpu/` | `sudo systemctl restart vllm` |
+
+For code changes, the standard flow is:
+1. `docker build -t dreyybaba/chat:latest .`
+2. `docker push dreyybaba/chat:latest`
+3. `KUBECONFIG=... kubectl delete pod -n portfolio -l app=portfolio`

@@ -16,7 +16,29 @@
       "Bash(git config:*)",
       "Bash(ssh:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(kubectl get:*)",
+      "Bash(git push:*)",
+      "Bash(ls:*)",
+      "Bash(docker build:*)",
+      "Bash(docker push:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl describe:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl logs:*)",
+      "Bash(docker compose logs:*)",
+      "Bash(docker compose:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl get pods:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl delete:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl get:*)",
+      "Bash(cloudflared tunnel route dns:*)",
+      "Bash(cloudflared tunnel route list:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl rollout:*)",
+      "Bash(systemctl status:*)",
+      "Bash(git rm:*)",
+      "Bash(gh repo edit:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl apply:*)",
+      "Bash(gh repo view:*)",
+      "Bash(docker run:*)"
     ]
   }
 }
