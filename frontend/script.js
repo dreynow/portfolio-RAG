@@ -116,8 +116,8 @@ function addMessage(text, type) {
         iconDiv.className = "flex-shrink-0 w-9 h-9 mt-1 border border-accent-color/30 p-1.5 flex items-center justify-center rounded-sm bg-accent-color/5";
         iconDiv.innerHTML = `
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                <path d="M25 25V75H50C65 75 75 65 75 50C75 35 65 25 50 25H25Z" stroke="#81e840" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M45 42C45 36 60 36 60 42C60 48 45 50 45 56C45 62 60 62 60 56" stroke="#81e840" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M25 25V75H50C65 75 75 65 75 50C75 35 65 25 50 25H25Z" stroke="#D2691E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M45 42C45 36 60 36 60 42C60 48 45 50 45 56C45 62 60 62 60 56" stroke="#D2691E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         `;
         msgContainer.appendChild(iconDiv);
