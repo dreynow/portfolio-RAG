@@ -153,6 +153,11 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
             .replace(/\n\n/g, '<br><br>') // Paragraphs
             .replace(/\n/g, '<br>'); // Line breaks
+
+        // Convert URLs to clickable links
+        const urlRegex = /(https?:\/\/[^\s<]+)/g;
+        formatted = formatted.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-accent-color hover:text-[#E89050] underline">$1</a>');
+
         return formatted;
     }
 
