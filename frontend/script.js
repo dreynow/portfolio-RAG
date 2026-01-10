@@ -34,10 +34,10 @@ chatForm.addEventListener('submit', async (e) => {
         // Toggle Tailwind classes for layout shift
         inputArea.classList.add('bottom-5');
         inputArea.classList.add('md:bottom-5'); // Explicitly set for md override if needed
-        inputArea.classList.remove('bottom-[20vh]');
-        inputArea.classList.remove('md:bottom-[35vh]');
+        inputArea.classList.remove('bottom-[15vh]');
+        inputArea.classList.remove('md:bottom-[20vh]');
         logo.classList.add('mt-5');
-        logo.classList.remove('mt-[20vh]');
+        logo.classList.remove('mt-[15vh]');
         chatContainer.classList.add('pb-32', 'md:pb-40'); // Increase padding to avoid blocking
         chatContainer.classList.remove('pb-[140px]');
     }
