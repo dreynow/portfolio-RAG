@@ -81,4 +81,8 @@ I enjoy breaking complex systems apart, understanding why they fail, and rebuild
 
 ---
 
+## You can contact me on
+- LinkedIn: https://www.linkedin.com/in/    dare-sunday-315a30138/
+- Email: dare@daresunday.com
+
 If you’re interested in **AI systems, data platforms, or practical automation**, you’ll probably find my work relatable.
