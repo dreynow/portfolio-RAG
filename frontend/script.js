@@ -46,8 +46,9 @@ chatForm.addEventListener('submit', async (e) => {
     aiMsgElement.appendChild(contentDiv);
 
     // Skeleton loader effect
-    contentDiv.innerHTML = '<span class="typing-indicator">...</span>';
-    auraGlow.classList.add('active');
+    contentDiv.innerHTML = '<span class="inline-block animate-typing">...</span>';
+    auraGlow.classList.remove('opacity-0');
+    auraGlow.classList.add('opacity-100');
 
     try {
         // 4. Fetch Stream
@@ -86,7 +87,8 @@ chatForm.addEventListener('submit', async (e) => {
         userInput.disabled = false;
         sendBtn.disabled = false;
         userInput.focus();
-        auraGlow.classList.remove('active');
+        auraGlow.classList.remove('opacity-100');
+        auraGlow.classList.add('opacity-0');
     }
 });
 
