@@ -81,6 +81,12 @@
             .scrollbar-none::-webkit-scrollbar {
                 display: none; /* Chrome, Safari and Opera */
             }
+            .pb-safe {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+            .mb-safe {
+                margin-bottom: env(safe-area-inset-bottom);
+            }
         }
     </style>
 </head>
@@ -125,7 +131,7 @@
         </div>
 
         <!-- Input Area -->
-        <div class="input-area fixed bottom-[35vh] left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[760px] p-2.5 rounded-2xl z-20 bg-bg-primary/85 backdrop-blur-xl border border-accent-color/20 shadow-2xl transition-all duration-400"
+        <div class="input-area fixed bottom-[20vh] md:bottom-[35vh] left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[760px] p-2.5 rounded-2xl z-20 bg-bg-primary/85 backdrop-blur-xl border border-accent-color/20 shadow-2xl transition-all duration-400"
             id="input-area">
             <form id="chat-form" autocomplete="off" class="flex gap-2.5 items-center">
                 <input type="text" id="user-input" placeholder="Ask a question..." required
