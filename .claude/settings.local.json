@@ -38,7 +38,9 @@
       "Bash(gh repo edit:*)",
       "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl apply:*)",
       "Bash(gh repo view:*)",
-      "Bash(docker run:*)"
+      "Bash(docker run:*)",
+      "Bash(KUBECONFIG=/home/mother/homelab/kubeconfig kubectl exec:*)",
+      "Bash(docker inspect:*)"
     ]
   }
 }
