@@ -9,6 +9,7 @@ services:
       - ~/.cache/huggingface:/root/.cache/huggingface
     environment:
       - VLLM_BASE_URL=http://host.docker.internal:8000/v1
+      - VLLM_API_KEY=${VLLM_API_KEY}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped

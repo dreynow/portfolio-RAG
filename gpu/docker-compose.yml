@@ -8,11 +8,13 @@ services:
       - ~/.cache/huggingface:/root/.cache/huggingface
     environment:
       - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-}
+      - VLLM_API_KEY=${VLLM_API_KEY}
     command: >
       --model Qwen/Qwen2.5-7B-Instruct
       --host 0.0.0.0
       --port 8000
       --max-model-len 8192
+      --api-key ${VLLM_API_KEY}
     deploy:
       resources:
         reservations:

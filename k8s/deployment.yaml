@@ -24,6 +24,11 @@ spec:
           env:
             - name: VLLM_BASE_URL
               value: "http://vllm-service:8000/v1"
+            - name: VLLM_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: vllm-api-key
+                  key: VLLM_API_KEY
           resources:
             requests:
               memory: "256Mi"

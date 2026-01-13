@@ -4,6 +4,7 @@ import os
 import httpx
 
 VLLM_BASE_URL = os.getenv("VLLM_BASE_URL", "http://localhost:8000/v1")
+VLLM_API_KEY = os.getenv("VLLM_API_KEY", "vllm")
 FALLBACK_MODEL = os.getenv("FALLBACK_MODEL", "Qwen/Qwen2.5-1.5B-Instruct-GGUF")
 FALLBACK_MODEL_FILE = os.getenv("FALLBACK_MODEL_FILE", "qwen2.5-1.5b-instruct-q4_k_m.gguf")
 
@@ -13,7 +14,8 @@ _llama_model = None
 def is_vllm_available():
     """Check if vLLM server is reachable."""
     try:
-        response = httpx.get(f"{VLLM_BASE_URL}/models", timeout=2.0)
+        headers = {"Authorization": f"Bearer {VLLM_API_KEY}"}
+        response = httpx.get(f"{VLLM_BASE_URL}/models", headers=headers, timeout=2.0)
         return response.status_code == 200
     except:
         return False
@@ -47,7 +49,7 @@ def load_prompt(file_path, context_data):
 
 def stream_with_vllm(system_message, question):
     """Stream response using vLLM."""
-    client = OpenAI(base_url=VLLM_BASE_URL, api_key="vllm")
+    client = OpenAI(base_url=VLLM_BASE_URL, api_key=VLLM_API_KEY)
     response = client.chat.completions.create(
         model="Qwen/Qwen2.5-7B-Instruct",
         messages=[
